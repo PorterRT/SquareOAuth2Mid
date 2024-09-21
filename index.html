@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+    <script>
+        (function() {
+            const params = new URLSearchParams(window.location.search);
+            const code = params.get('code');
+            const state = params.get('state');
+            if (code && state) {
+                // Redirect to your app's custom URL scheme
+                window.location.href = `myapp://callback?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`;
+            } else {
+                // Handle error
+                document.body.innerHTML = '<h1>Error: Missing code or state parameter.</h1>';
+            }
+        })();
+    </script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+</body>
+</html>
